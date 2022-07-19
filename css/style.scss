@@ -1,0 +1,458 @@
+// Created March 7th by Tate Schron
+// Updated Jul 18th, 1:00pm
+
+// fonts
+@font-face {
+    font-family: 'St Marie';
+    src: url('../font/StMarieThin/StMarie-Thin.woff');
+    font-weight: normal;
+}
+
+// imports
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+// mixins
+@mixin breakpoint($max-width) {
+    @media (max-width: $max-width) {
+        @content;
+    }
+}
+
+// color palette
+$colors: (
+    text_reverse: #FFFFFF,
+    light_gray: #E2E2E2,
+    teal_blue: #4E8197,
+    turquoise: #76D6CD,
+    teal: #1BBBAB,
+    teal_dark: #18A89A,
+    olive: #577F65,
+
+    shadow: #00000059
+);
+
+// css reset
+*:not(title, script) {
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1em;
+    list-style: none;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: relative;
+
+    #root {
+        @include breakpoint(853px) {
+            overflow: hidden;
+        }
+    }
+
+    body {
+        background: url('http://s910379022.onlinehome.us/assets/img/background.png') left center repeat;
+        font-family: 'Nunito', sans-serif;
+        height: 100%;
+    }
+    
+    a, b, span {
+        display: inline-block;
+        width: fit-content;
+    }
+
+    a {
+        color: map-get($colors, text_reverse);
+
+        &.no-under {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    section {
+        padding-bottom: 14px;
+
+        > p {
+            &:not(:last-of-type) {
+                margin-bottom: 14px;
+            }
+
+            &:is(:only-of-type) {
+                margin-bottom: 55px;
+            }
+        }
+    }
+
+    // modular styles
+    .title {
+        font-family: 'St Marie', sans-serif;
+        font-weight: bold;
+
+        &:is(main .title) {
+            color: map-get($colors, olive);
+            background: linear-gradient(map-get($colors, teal), map-get($colors, teal)) bottom left no-repeat;
+            background-size: 120px 2px;  
+            font-size: 2.625rem;
+            margin-bottom: 30px;
+            padding: 70px 0 12px 0;
+        }
+    }
+
+    .shadow {
+        filter: drop-shadow(0 0 8px map-get($colors, shadow));
+    }
+
+    .bullet {
+        &.right {
+            font-size: 1.25rem;
+            padding-right: 5px;
+        }
+    }
+
+    .link-text {
+        text-decoration: underline;
+    }
+}
+
+// content styling
+#root {
+    filter: drop-shadow(0 0 8px map-get($colors, shadow));
+    margin: 40px auto 60px;
+    max-width: 854px;
+    min-width: 320px;
+    width: 100%;
+
+
+    @include breakpoint(853px) {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+main {
+    background: map-get($colors, text_reverse);
+    padding: 0 80px;
+
+    @include breakpoint(745px) {
+        padding: 0 52px;
+    }
+    
+    @include breakpoint(639px) {
+        padding: 0 25px;
+    }
+}
+
+header {
+    height: 287px;
+
+    .logo {
+        height: 160px;
+        left: -25px;
+        position: absolute;
+        top: -25px;
+        width: 140px;
+        z-index: 1;
+
+        a {
+            background: url('http://s910379022.onlinehome.us/assets/icon/logo.png') center no-repeat;
+            background-size: 100%;
+            height: 100%;
+            width: 100%;
+        }
+
+        @include breakpoint(903px) {
+            left: 25px;
+        }
+
+        @include breakpoint(853px) {
+            top: -40px;
+        }
+
+        @include breakpoint(640px) {
+            height: 105px;
+            top: -26px;
+            width: 92px;
+        }
+    }
+    
+    .hero {
+        border-radius: 20px 20px 0 0;
+        background: url('http://s910379022.onlinehome.us/assets/img/header-welcome-3.jpg') top center no-repeat;
+        background-size: 854px 100%;
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+
+        h1 {
+            bottom: 40px;
+            color: map-get($colors, text_reverse);
+            text-shadow: 0 0 32px map-get($colors, shadow);
+            font-size: 4.5rem;
+            left: 80px;
+            position: absolute;
+            z-index: 1;
+
+            @include breakpoint(903px) {
+                bottom: 20px;
+            }
+
+            @include breakpoint(745px) {
+                font-size: 3.5rem;
+                left: 52px;
+            }
+
+            @include breakpoint(640px) {
+                font-size: 2.5rem;
+                left: 25px;
+            }
+        }
+        
+        @include breakpoint(853px) {
+            border-radius: 0;
+        }
+    }
+
+    #hex-cluster {
+        bottom: 99px;
+        position: absolute;
+        right: 172px;
+        z-index: 1;
+
+        .hex {
+            position: absolute;
+
+            &.lrg {
+                fill: url(#hex-lrg-img);
+                filter: grayscale(1);
+                height: 149px;
+                transition: transform .125s linear;
+                width: 130px;
+
+                &:hover {
+                    filter: grayscale(0);
+                    transform: scale(105%);
+                }
+            }
+            
+            &.med {
+                fill: map-get($colors, teal);
+                height: 72px;
+                left: -36px;
+                top: 90px;
+                width: 63px;
+            }
+            
+            &.sml {
+                fill: map-get($colors, light_gray);
+                height: 39px;
+                top: 169px;
+                left: 1px;
+                width: 34px;
+            }
+            
+            &.tiny {
+                fill: map-get($colors, olive);
+                height: 21px;
+                top: 58px;
+                left: -36px;
+                width: 18px;
+            }
+        }
+
+        @include breakpoint(639px) {
+            right: 95px;
+
+            .med, .sml {
+                display: none;
+            }
+        }
+    }
+}
+
+#about {
+    // display: none;
+}
+
+#links {
+    margin-bottom: 2px;
+
+    > ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        * {
+            color: map-get($colors, text_reverse);
+        }
+
+        > li:not(:last-child) {
+            margin-right: 41px;
+
+            @include breakpoint(853px) {
+                margin: 0 20.5px 41px;
+            }
+            
+            @include breakpoint(539px) {
+                margin: 0 41px;
+
+                &:not(:last-child) {
+                    margin-bottom: 41px;
+                }
+            }
+        }
+        
+        .card {
+            background-color: map-get($colors, olive);
+            border-radius: 8px;
+            min-height: 307px;
+            overflow: hidden;
+            width: 204px;
+
+            .thumbnail {
+                display: flex;
+                flex-direction: column;
+                height: 172px;
+                justify-content: flex-end;
+
+                img {
+                    filter: brightness(.625);
+                    position: absolute;
+                }
+
+                figcaption {
+                    font-size: 1.375rem;
+                    font-weight: 600;
+                    line-height: 1.2em;
+                    margin: 0 20px 14px;
+                }
+            }
+
+            .content {
+                padding: 16px 20px 20px 20px;
+
+                p {
+                    font-size: .875rem;
+                    font-weight: 200;
+                    margin-bottom: 13px;
+                }
+    
+                a {
+                    font-size: 1.25rem;
+                    font-weight: 400;
+                }
+
+                li:not(:last-child) {
+                    margin-bottom: 9px;
+                }
+            }
+        }
+
+        @include breakpoint(853px) {
+            justify-content: space-around;
+        }
+    }
+}
+
+#downloads {
+    > ul {
+        display: grid;
+        grid-gap: 41px;
+        grid-template-columns: repeat(auto-fill, 142px);
+        margin-bottom: 46px;
+
+        * {
+            color: map-get($colors, text_reverse);
+        }
+
+        .download {
+            background: map-get($colors, teal);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            height: 142px;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding: 15px;
+            text-decoration: none;
+            transition: background-color .125 linear;
+            width: 142px;
+
+            .caption {
+                font-size: 1.125rem;
+                font-weight: 600;
+                line-height: 1.15em;
+                margin-bottom: 6px;
+            }
+
+            .link-text {
+                font-size: .875rem;
+            }
+
+            &:hover {
+                background-color: map-get($colors, teal_dark);
+            }
+        }
+
+        @include breakpoint(853px) {
+            justify-content: space-around;
+            margin: 0 auto 46px;
+            width: 100%;
+        }
+    }
+}
+
+footer {
+    background: map-get($colors, teal_blue);
+    border-radius: 0 0 20px 20px;
+    padding: 0 80px 30px;
+
+    * {
+        color: map-get($colors, text_reverse)
+    }
+
+    ul {
+        display: inline-flex;
+        margin: 27px 0 10px 0;
+    
+        li:not(:last-child) {
+            margin-right: 31px;
+        }
+
+        @include breakpoint(745px) {
+            flex-direction: column;
+            margin: 27px 0 19px 0;
+
+            li {
+                margin-bottom: 11px;
+            }
+        }
+    }
+
+    a {
+        font-size: .875rem;
+    }
+    
+    p {
+        font-size: .75rem;
+    }
+
+    span {
+        font-size: .75rem;
+    }
+
+    @include breakpoint(853px) {
+        border-radius: 0;
+    }
+    
+    @include breakpoint(745px) {
+        padding: 0 52px 30px;
+    }
+    
+    @include breakpoint(639px) {
+        padding: 0 25px 30px;
+    }
+}
