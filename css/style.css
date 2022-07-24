@@ -365,10 +365,7 @@ footer ul li:not(:last-child) {
 footer a {
   font-size: 0.875rem;
 }
-footer p {
-  font-size: 0.75rem;
-}
-footer span {
+footer p, footer span {
   font-size: 0.75rem;
 }
 @media (max-width: 853px) {
