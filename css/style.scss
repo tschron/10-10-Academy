@@ -51,7 +51,7 @@ $colors: (
     }
 
     body {
-        background: url('http://s910379022.onlinehome.us/assets/img/background.png') left center repeat;
+        background: url('../assets/img/background.png') left center repeat;
         font-family: 'Nunito', sans-serif;
         height: 100%;
     }
@@ -77,12 +77,10 @@ $colors: (
         padding-bottom: 14px;
 
         > p {
+            font-weight: 100;
+
             &:not(:last-of-type) {
                 margin-bottom: 14px;
-            }
-
-            &:is(:only-of-type) {
-                margin-bottom: 55px;
             }
         }
     }
@@ -158,7 +156,7 @@ header {
         z-index: 1;
 
         a {
-            background: url('http://s910379022.onlinehome.us/assets/icon/logo.png') center no-repeat;
+            background: url('../assets/icon/logo.png') center no-repeat;
             background-size: 100%;
             height: 100%;
             width: 100%;
@@ -181,7 +179,7 @@ header {
     
     .hero {
         border-radius: 20px 20px 0 0;
-        background: url('http://s910379022.onlinehome.us/assets/img/header-welcome-3.jpg') top center no-repeat;
+        background: url('../assets/img/header-welcome-3.jpg') left center no-repeat;
         background-size: 854px 100%;
         height: 100%;
         overflow: hidden;
@@ -227,13 +225,13 @@ header {
 
             &.lrg {
                 fill: url(#hex-lrg-img);
-                filter: grayscale(1);
+                filter: drop-shadow(0 0 8px map-get($colors, shadow)) grayscale(1);
                 height: 149px;
                 transition: transform .125s linear;
                 width: 130px;
 
                 &:hover {
-                    filter: grayscale(0);
+                    filter: drop-shadow(0 0 8px map-get($colors, shadow)) grayscale(0);
                     transform: scale(105%);
                 }
             }
@@ -273,10 +271,6 @@ header {
     }
 }
 
-#about {
-    // display: none;
-}
-
 #links {
     margin-bottom: 2px;
 
@@ -308,7 +302,7 @@ header {
         .card {
             background-color: map-get($colors, olive);
             border-radius: 8px;
-            min-height: 307px;
+            min-height: 417px;
             overflow: hidden;
             width: 204px;
 

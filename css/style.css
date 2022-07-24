@@ -22,7 +22,7 @@
   }
 }
 *:not(title, script) body {
-  background: url("http://s910379022.onlinehome.us/assets/img/background.png") left center repeat;
+  background: url("../assets/img/background.png") left center repeat;
   font-family: "Nunito", sans-serif;
   height: 100%;
 }
@@ -44,11 +44,11 @@
 *:not(title, script) section {
   padding-bottom: 14px;
 }
+*:not(title, script) section > p {
+  font-weight: 100;
+}
 *:not(title, script) section > p:not(:last-of-type) {
   margin-bottom: 14px;
-}
-*:not(title, script) section > p:is(:only-of-type) {
-  margin-bottom: 55px;
 }
 *:not(title, script) .title {
   font-family: "St Marie", sans-serif;
@@ -114,7 +114,7 @@ header .logo {
   z-index: 1;
 }
 header .logo a {
-  background: url("http://s910379022.onlinehome.us/assets/icon/logo.png") center no-repeat;
+  background: url("../assets/icon/logo.png") center no-repeat;
   background-size: 100%;
   height: 100%;
   width: 100%;
@@ -138,7 +138,7 @@ header .logo a {
 }
 header .hero {
   border-radius: 20px 20px 0 0;
-  background: url("http://s910379022.onlinehome.us/assets/img/header-welcome-3.jpg") top center no-repeat;
+  background: url("../assets/img/header-welcome-3.jpg") left center no-repeat;
   background-size: 854px 100%;
   height: 100%;
   overflow: hidden;
@@ -186,13 +186,13 @@ header #hex-cluster .hex {
 }
 header #hex-cluster .hex.lrg {
   fill: url(#hex-lrg-img);
-  filter: grayscale(1);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3490196078)) grayscale(1);
   height: 149px;
   transition: transform 0.125s linear;
   width: 130px;
 }
 header #hex-cluster .hex.lrg:hover {
-  filter: grayscale(0);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3490196078)) grayscale(0);
   transform: scale(105%);
 }
 header #hex-cluster .hex.med {
@@ -255,7 +255,7 @@ header #hex-cluster .hex.tiny {
 #links > ul .card {
   background-color: #577F65;
   border-radius: 8px;
-  min-height: 307px;
+  min-height: 417px;
   overflow: hidden;
   width: 204px;
 }
