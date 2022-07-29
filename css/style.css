@@ -41,7 +41,7 @@
   text-decoration: underline;
 }
 *:not(title, script) section {
-  padding-bottom: 14px;
+  padding: 14px 80px 0;
 }
 *:not(title, script) section > p {
   font-weight: 100;
@@ -49,11 +49,21 @@
 *:not(title, script) section > p:not(:last-of-type) {
   margin-bottom: 14px;
 }
+@media (max-width: 745px) {
+  *:not(title, script) section {
+    padding: 14px 52px;
+  }
+}
+@media (max-width: 639px) {
+  *:not(title, script) section {
+    padding: 14px 25px;
+  }
+}
 *:not(title, script) .title {
   font-family: "St Marie", sans-serif;
   font-weight: bold;
 }
-*:not(title, script) .title:is(main .title) {
+*:not(title, script) .title:not(#header .title) {
   color: #577F65;
   background: linear-gradient(#1BBBAB, #1BBBAB) bottom left no-repeat;
   background-size: 120px 2px;
@@ -86,25 +96,15 @@
   }
 }
 
-main {
+#main {
   background: #FFFFFF;
-  padding: 0 80px;
-}
-@media (max-width: 745px) {
-  main {
-    padding: 0 52px;
-  }
-}
-@media (max-width: 639px) {
-  main {
-    padding: 0 25px;
-  }
+  border-radius: 20px;
 }
 
-header {
+#header {
   height: 287px;
 }
-header .logo {
+#header .logo {
   height: 160px;
   left: -25px;
   position: absolute;
@@ -112,30 +112,30 @@ header .logo {
   width: 140px;
   z-index: 1;
 }
-header .logo a {
+#header .logo a {
   background: url("../assets/icon/logo.png") center no-repeat;
   background-size: 100%;
   height: 100%;
   width: 100%;
 }
 @media (max-width: 903px) {
-  header .logo {
+  #header .logo {
     left: 25px;
   }
 }
 @media (max-width: 853px) {
-  header .logo {
+  #header .logo {
     top: -40px;
   }
 }
 @media (max-width: 640px) {
-  header .logo {
+  #header .logo {
     height: 105px;
     top: -26px;
     width: 92px;
   }
 }
-header .hero {
+#header .hero {
   border-radius: 20px 20px 0 0;
   background: url("../assets/img/header-welcome-3.jpg") left center no-repeat;
   background-size: 854px 100%;
@@ -143,7 +143,7 @@ header .hero {
   overflow: hidden;
   width: 100%;
 }
-header .hero h1 {
+#header .hero h1 {
   bottom: 40px;
   color: #FFFFFF;
   text-shadow: 0 0 32px rgba(0, 0, 0, 0.3490196078);
@@ -153,62 +153,62 @@ header .hero h1 {
   z-index: 1;
 }
 @media (max-width: 903px) {
-  header .hero h1 {
+  #header .hero h1 {
     bottom: 20px;
   }
 }
 @media (max-width: 745px) {
-  header .hero h1 {
+  #header .hero h1 {
     font-size: 3.5rem;
     left: 52px;
   }
 }
 @media (max-width: 640px) {
-  header .hero h1 {
+  #header .hero h1 {
     font-size: 2.5rem;
     left: 25px;
   }
 }
 @media (max-width: 853px) {
-  header .hero {
+  #header .hero {
     border-radius: 0;
   }
 }
-header #hex-cluster {
+#header #hex-cluster {
   bottom: 99px;
   position: absolute;
   right: 172px;
   z-index: 1;
 }
-header #hex-cluster .hex {
+#header #hex-cluster .hex {
   position: absolute;
 }
-header #hex-cluster .hex.lrg {
+#header #hex-cluster .hex.lrg {
   fill: url(#hex-lrg-img);
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3490196078)) grayscale(1);
   height: 149px;
   transition: transform 0.125s linear;
   width: 130px;
 }
-header #hex-cluster .hex.lrg:hover {
+#header #hex-cluster .hex.lrg:hover {
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3490196078)) grayscale(0);
   transform: scale(105%);
 }
-header #hex-cluster .hex.med {
+#header #hex-cluster .hex.med {
   fill: #1BBBAB;
   height: 72px;
   left: -36px;
   top: 90px;
   width: 63px;
 }
-header #hex-cluster .hex.sml {
+#header #hex-cluster .hex.sml {
   fill: #E2E2E2;
   height: 39px;
   top: 169px;
   left: 1px;
   width: 34px;
 }
-header #hex-cluster .hex.tiny {
+#header #hex-cluster .hex.tiny {
   fill: #577F65;
   height: 21px;
   top: 58px;
@@ -216,21 +216,19 @@ header #hex-cluster .hex.tiny {
   width: 18px;
 }
 @media (max-width: 639px) {
-  header #hex-cluster {
+  #header #hex-cluster {
     right: 95px;
   }
-  header #hex-cluster .med, header #hex-cluster .sml {
+  #header #hex-cluster .med, #header #hex-cluster .sml {
     display: none;
   }
 }
 
-#links {
-  margin-bottom: 2px;
-}
 #links > ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 2px;
 }
 #links > ul * {
   color: #FFFFFF;
@@ -314,7 +312,7 @@ header #hex-cluster .hex.tiny {
   overflow: hidden;
   padding: 15px;
   text-decoration: none;
-  transition: background-color 0.125 linear;
+  transition: 0.125s linear;
   width: 142px;
 }
 #downloads > ul .download .caption {
@@ -337,48 +335,48 @@ header #hex-cluster .hex.tiny {
   }
 }
 
-footer {
+#footer {
   background: #4E8197;
   border-radius: 0 0 20px 20px;
   padding: 0 80px 30px;
 }
-footer * {
+#footer * {
   color: #FFFFFF;
 }
-footer ul {
+#footer ul {
   display: inline-flex;
   margin: 27px 0 10px 0;
 }
-footer ul li:not(:last-child) {
+#footer ul li:not(:last-child) {
   margin-right: 31px;
 }
 @media (max-width: 745px) {
-  footer ul {
+  #footer ul {
     flex-direction: column;
     margin: 27px 0 19px 0;
   }
-  footer ul li {
+  #footer ul li {
     margin-bottom: 11px;
   }
 }
-footer a {
+#footer a {
   font-size: 0.875rem;
 }
-footer p, footer span {
+#footer p, #footer span {
   font-size: 0.75rem;
 }
 @media (max-width: 853px) {
-  footer {
+  #footer {
     border-radius: 0;
   }
 }
 @media (max-width: 745px) {
-  footer {
+  #footer {
     padding: 0 52px 30px;
   }
 }
 @media (max-width: 639px) {
-  footer {
+  #footer {
     padding: 0 25px 30px;
   }
 }/*# sourceMappingURL=style.css.map */

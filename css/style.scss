@@ -1,5 +1,5 @@
 // Created March 7th by Tate Schron
-// Updated Jul 23th, 6:00pm
+// Updated Jul 28th, 1:00am
 
 // fonts
 @font-face {
@@ -73,7 +73,7 @@ $colors: (
     }
 
     section {
-        padding-bottom: 14px;
+        padding: 14px 80px 0;
 
         > p {
             font-weight: 100;
@@ -82,6 +82,14 @@ $colors: (
                 margin-bottom: 14px;
             }
         }
+
+        @include breakpoint(745px) {
+            padding: 14px 52px;
+        }
+        
+        @include breakpoint(639px) {
+            padding: 14px 25px;
+        }
     }
 
     // modular styles
@@ -89,7 +97,7 @@ $colors: (
         font-family: 'St Marie', sans-serif;
         font-weight: bold;
 
-        &:is(main .title) {
+        &:not(#header .title) {
             color: map-get($colors, olive);
             background: linear-gradient(map-get($colors, teal), map-get($colors, teal)) bottom left no-repeat;
             background-size: 120px 2px;  
@@ -123,27 +131,18 @@ $colors: (
     min-width: 320px;
     width: 100%;
 
-
     @include breakpoint(853px) {
         margin: 0;
         width: 100%;
     }
 }
 
-main {
+#main {
     background: map-get($colors, text_reverse);
-    padding: 0 80px;
-
-    @include breakpoint(745px) {
-        padding: 0 52px;
-    }
-    
-    @include breakpoint(639px) {
-        padding: 0 25px;
-    }
+    border-radius: 20px;
 }
 
-header {
+#header {
     height: 287px;
 
     .logo {
@@ -271,12 +270,11 @@ header {
 }
 
 #links {
-    margin-bottom: 2px;
-
     > ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-bottom: 2px;
 
         * {
             color: map-get($colors, text_reverse);
@@ -371,7 +369,7 @@ header {
             overflow: hidden;
             padding: 15px;
             text-decoration: none;
-            transition: background-color .125 linear;
+            transition: .125s linear;
             width: 142px;
 
             .caption {
@@ -398,7 +396,7 @@ header {
     }
 }
 
-footer {
+#footer {
     background: map-get($colors, teal_blue);
     border-radius: 0 0 20px 20px;
     padding: 0 80px 30px;
