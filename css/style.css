@@ -1,8 +1,9 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @font-face {
   font-family: "St Marie";
-  src: url("../font/StMarieThin/StMarie-Thin.woff");
-  font-weight: normal;
+  src: url("/font/StMarieThin/StMarie-Thin.woff");
+  font-weight: 100;
 }
 *:not(title, script) {
   background: transparent;
@@ -21,8 +22,9 @@
   }
 }
 *:not(title, script) body {
-  background: url("../assets/img/background.png") left center repeat;
+  background: url("/assets/img/background.png") left center repeat;
   font-family: "Nunito", sans-serif;
+  font-weight: 200;
   height: 100%;
 }
 *:not(title, script) a, *:not(title, script) b, *:not(title, script) span {
@@ -32,7 +34,14 @@
   width: fit-content;
 }
 *:not(title, script) a {
+  color: #1BBBAB;
+  font-weight: bold;
+}
+*:not(title, script) a.white {
   color: #FFFFFF;
+}
+*:not(title, script) a.light {
+  font-weight: normal;
 }
 *:not(title, script) a.no-under {
   text-decoration: none;
@@ -41,27 +50,35 @@
   text-decoration: underline;
 }
 *:not(title, script) section {
-  padding: 14px 80px 0;
+  padding: 0 80px;
+}
+*:not(title, script) section:first-of-type {
+  margin-top: 70px;
+}
+*:not(title, script) section:not(:only-of-type) {
+  margin-bottom: 91px;
 }
 *:not(title, script) section > p {
   font-weight: 100;
+}
+*:not(title, script) section > p:only-of-type {
+  margin-bottom: 50px;
 }
 *:not(title, script) section > p:not(:last-of-type) {
   margin-bottom: 14px;
 }
 @media (max-width: 745px) {
   *:not(title, script) section {
-    padding: 14px 52px;
+    padding: 0px 52px;
   }
 }
-@media (max-width: 639px) {
+@media (max-width: 640px) {
   *:not(title, script) section {
-    padding: 14px 25px;
+    padding: 0px 25px;
   }
 }
 *:not(title, script) .title {
   font-family: "St Marie", sans-serif;
-  font-weight: bold;
 }
 *:not(title, script) .title:not(#header .title) {
   color: #577F65;
@@ -69,7 +86,17 @@
   background-size: 120px 2px;
   font-size: 2.625rem;
   margin-bottom: 30px;
-  padding: 70px 0 12px 0;
+  padding: 0px 0 12px 0;
+}
+@media (max-width: 853px) {
+  *:not(title, script) .title:not(#header .title).wrap {
+    max-width: 500px;
+  }
+}
+@media (max-width: 745px) {
+  *:not(title, script) .title:not(#header .title).wrap {
+    max-width: 400px;
+  }
 }
 *:not(title, script) .shadow {
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3490196078));
@@ -83,7 +110,6 @@
 }
 
 #root {
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3490196078));
   margin: 40px auto 60px;
   max-width: 854px;
   min-width: 320px;
@@ -96,7 +122,7 @@
   }
 }
 
-#main {
+main {
   background: #FFFFFF;
   border-radius: 20px;
 }
@@ -104,7 +130,11 @@
 #header {
   height: 287px;
 }
-#header .logo {
+#header #navbar {
+  position: absolute;
+  z-index: 2;
+}
+#header #navbar .logo {
   height: 160px;
   left: -25px;
   position: absolute;
@@ -112,32 +142,78 @@
   width: 140px;
   z-index: 1;
 }
-#header .logo a {
-  background: url("../assets/icon/logo.png") center no-repeat;
+#header #navbar .logo a {
+  background: url("/assets/icon/logo.png") center no-repeat;
   background-size: 100%;
   height: 100%;
   width: 100%;
 }
 @media (max-width: 903px) {
-  #header .logo {
+  #header #navbar .logo {
     left: 25px;
   }
 }
 @media (max-width: 853px) {
-  #header .logo {
+  #header #navbar .logo {
     top: -40px;
   }
 }
 @media (max-width: 640px) {
-  #header .logo {
-    height: 105px;
-    top: -26px;
-    width: 92px;
+  #header #navbar .logo {
+    height: 120px;
+    top: -30px;
+    width: 105px;
+  }
+}
+#header #navbar > div > ul {
+  align-items: center;
+  display: inline-flex;
+  height: 110px;
+  margin-left: 125px;
+}
+#header #navbar > div > ul li:hover .drawer, #header #navbar > div > ul li:hover .dropdown {
+  background: #1BBBAB;
+}
+#header #navbar > div > ul li:hover .dropdown {
+  display: grid;
+}
+#header #navbar > div > ul li:hover .dropdown a {
+  font-size: 0.875rem;
+  width: 100%;
+}
+#header #navbar > div > ul li:hover .dropdown a:hover {
+  background: #98D4CC;
+  color: #262626;
+}
+#header #navbar > div > ul a {
+  color: #FFFFFF;
+  font-weight: normal;
+  padding: 16px 20px;
+  text-decoration: none;
+}
+#header #navbar > div > ul .dropdown {
+  display: none;
+  position: absolute;
+  width: 170px;
+}
+@media (max-width: 903px) {
+  #header #navbar > div > ul {
+    margin-left: 175px;
+  }
+}
+@media (max-width: 853px) {
+  #header #navbar > div > ul {
+    height: 80px;
+  }
+}
+@media (max-width: 640px) {
+  #header #navbar > div > ul {
+    display: none;
   }
 }
 #header .hero {
   border-radius: 20px 20px 0 0;
-  background: url("../assets/img/header-welcome-3.jpg") left center no-repeat;
+  background: url("/assets/img/header-welcome-3.jpg") left center no-repeat;
   background-size: 854px 100%;
   height: 100%;
   overflow: hidden;
@@ -215,7 +291,7 @@
   left: -36px;
   width: 18px;
 }
-@media (max-width: 639px) {
+@media (max-width: 640px) {
   #header #hex-cluster {
     right: 95px;
   }
@@ -225,34 +301,18 @@
 }
 
 #links > ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 2px;
+  display: grid;
+  grid-gap: 41px;
+  grid-template-columns: repeat(auto-fill, 204px);
+  grid-auto-rows: 1fr;
 }
 #links > ul * {
   color: #FFFFFF;
 }
-#links > ul > li:not(:last-child) {
-  margin-right: 41px;
-}
-@media (max-width: 853px) {
-  #links > ul > li:not(:last-child) {
-    margin: 0 20.5px 41px;
-  }
-}
-@media (max-width: 539px) {
-  #links > ul > li:not(:last-child) {
-    margin: 0 41px;
-  }
-  #links > ul > li:not(:last-child):not(:last-child) {
-    margin-bottom: 41px;
-  }
-}
 #links > ul .card {
   background-color: #577F65;
   border-radius: 8px;
-  min-height: 417px;
+  height: 100%;
   overflow: hidden;
   width: 204px;
 }
@@ -266,7 +326,7 @@
   filter: brightness(0.625);
   position: absolute;
 }
-#links > ul .card .thumbnail figcaption {
+#links > ul .card .thumbnail p {
   font-size: 1.375rem;
   font-weight: 600;
   line-height: 1.2em;
@@ -293,16 +353,73 @@
   }
 }
 
-#downloads > ul {
+#faqs {
+  margin-bottom: 4px;
+}
+#faqs .question {
+  margin-bottom: 5px;
+}
+#faqs li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+#testimonials > ul > li:not(:last-child) {
+  margin-bottom: 89px;
+}
+#testimonials .testimony {
+  align-items: flex-end;
+  -moz-column-gap: 41px;
+       column-gap: 41px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#testimonials .testimony > p {
+  font-size: 1.3125rem;
+  font-weight: normal;
+  padding-bottom: 53px;
+  width: 449px;
+}
+#testimonials .testimony > p:before {
+  content: "“";
+  position: absolute;
+  left: -8px;
+}
+@media (max-width: 853px) {
+  #testimonials .testimony > p {
+    padding-bottom: 13px;
+    width: 100%;
+  }
+}
+#testimonials .testimony .attribution {
+  width: 204px;
+}
+#testimonials .testimony .attribution h3 {
+  font-family: "St Marie", sans-serif;
+  font-size: 1.875rem;
+  line-height: 1.2em;
+  margin-bottom: 8px;
+}
+#testimonials .testimony .attribution ul {
+  margin-bottom: 33px;
+}
+#testimonials .testimony hr {
+  background: #1BBBAB;
+  bottom: 38px;
+  height: 2px;
+  position: absolute;
+  width: calc(100% + 80px);
+}
+
+#downloads div > ul {
   display: grid;
   grid-gap: 41px;
   grid-template-columns: repeat(auto-fill, 142px);
-  margin-bottom: 46px;
 }
-#downloads > ul * {
+#downloads div > ul * {
   color: #FFFFFF;
 }
-#downloads > ul .download {
+#downloads div > ul .download {
   background: #1BBBAB;
   border-radius: 8px;
   display: flex;
@@ -315,22 +432,21 @@
   transition: 0.125s linear;
   width: 142px;
 }
-#downloads > ul .download .caption {
+#downloads div > ul .download .caption {
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.15em;
   margin-bottom: 6px;
 }
-#downloads > ul .download .link-text {
+#downloads div > ul .download .link-text {
   font-size: 0.875rem;
 }
-#downloads > ul .download:hover {
+#downloads div > ul .download:hover {
   background-color: #18A89A;
 }
 @media (max-width: 853px) {
-  #downloads > ul {
+  #downloads div > ul {
     justify-content: space-around;
-    margin: 0 auto 46px;
     width: 100%;
   }
 }
@@ -339,6 +455,7 @@
   background: #4E8197;
   border-radius: 0 0 20px 20px;
   padding: 0 80px 30px;
+  margin-top: 60px;
 }
 #footer * {
   color: #FFFFFF;
@@ -350,7 +467,7 @@
 #footer ul li:not(:last-child) {
   margin-right: 31px;
 }
-@media (max-width: 745px) {
+@media (max-width: 405px) {
   #footer ul {
     flex-direction: column;
     margin: 27px 0 19px 0;
@@ -375,7 +492,7 @@
     padding: 0 52px 30px;
   }
 }
-@media (max-width: 639px) {
+@media (max-width: 640px) {
   #footer {
     padding: 0 25px 30px;
   }

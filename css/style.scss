@@ -1,11 +1,11 @@
 // Created March 7th by Tate Schron
-// Updated Jul 28th, 1:00am
+// Updated August 9th, 6:00pm
 
 // fonts
 @font-face {
     font-family: 'St Marie';
-    src: url('../font/StMarieThin/StMarie-Thin.woff');
-    font-weight: normal;
+    src: url('/font/StMarieThin/StMarie-Thin.woff');
+    font-weight: 100;
 }
 
 // imports
@@ -20,10 +20,12 @@
 
 // color palette
 $colors: (
+    text: #262626,
     text_reverse: #FFFFFF,
     light_gray: #E2E2E2,
     teal_blue: #4E8197,
     turquoise: #76D6CD,
+    light_teal: #98D4CC,
     teal: #1BBBAB,
     teal_dark: #18A89A,
     olive: #577F65,
@@ -50,8 +52,9 @@ $colors: (
     }
 
     body {
-        background: url('../assets/img/background.png') left center repeat;
+        background: url('/assets/img/background.png') left center repeat;
         font-family: 'Nunito', sans-serif;
+        font-weight: 200;
         height: 100%;
     }
     
@@ -61,7 +64,16 @@ $colors: (
     }
 
     a {
-        color: map-get($colors, text_reverse);
+        color: map-get($colors, teal);
+        font-weight: bold;
+        
+        &.white {
+            color: map-get($colors, text_reverse);
+        }
+
+        &.light {
+            font-weight: normal;
+        }
 
         &.no-under {
             text-decoration: none;
@@ -72,30 +84,42 @@ $colors: (
         }
     }
 
+    // wrapper sizing for responsive
     section {
-        padding: 14px 80px 0;
+        padding: 0 80px;
+
+        &:first-of-type {
+            margin-top: 70px;
+        }
+
+        &:not(:only-of-type) {
+            margin-bottom: 91px;
+        }
 
         > p {
             font-weight: 100;
 
+            &:only-of-type {
+                margin-bottom: 50px;
+            }
+            
             &:not(:last-of-type) {
                 margin-bottom: 14px;
             }
         }
 
         @include breakpoint(745px) {
-            padding: 14px 52px;
+            padding: 0px 52px;
         }
         
-        @include breakpoint(639px) {
-            padding: 14px 25px;
+        @include breakpoint(640px) {
+            padding: 0px 25px;
         }
     }
 
     // modular styles
     .title {
         font-family: 'St Marie', sans-serif;
-        font-weight: bold;
 
         &:not(#header .title) {
             color: map-get($colors, olive);
@@ -103,7 +127,17 @@ $colors: (
             background-size: 120px 2px;  
             font-size: 2.625rem;
             margin-bottom: 30px;
-            padding: 70px 0 12px 0;
+            padding: 0px 0 12px 0;
+
+            &.wrap {
+                @include breakpoint(853px) {
+                    max-width: 500px;
+                }
+                
+                @include breakpoint(745px) {
+                    max-width: 400px;
+                }
+            }
         }
     }
 
@@ -125,7 +159,6 @@ $colors: (
 
 // content styling
 #root {
-    filter: drop-shadow(0 0 8px map-get($colors, shadow));
     margin: 40px auto 60px;
     max-width: 854px;
     min-width: 320px;
@@ -137,47 +170,106 @@ $colors: (
     }
 }
 
-#main {
+// main site wrapper styling
+main {
     background: map-get($colors, text_reverse);
     border-radius: 20px;
 }
 
+// header section
 #header {
     height: 287px;
 
-    .logo {
-        height: 160px;
-        left: -25px;
+    #navbar {
         position: absolute;
-        top: -25px;
-        width: 140px;
-        z-index: 1;
+        z-index: 2;
 
-        a {
-            background: url('../assets/icon/logo.png') center no-repeat;
-            background-size: 100%;
-            height: 100%;
-            width: 100%;
+        .logo {
+            height: 160px;
+            left: -25px;
+            position: absolute;
+            top: -25px;
+            width: 140px;
+            z-index: 1;
+    
+            a {
+                background: url('/assets/icon/logo.png') center no-repeat;
+                background-size: 100%;
+                height: 100%;
+                width: 100%;
+            }
+    
+            @include breakpoint(903px) {
+                left: 25px;
+            }
+    
+            @include breakpoint(853px) {
+                top: -40px;
+            }
+    
+            @include breakpoint(640px) {
+                height: 120px;
+                top: -30px;
+                width: 105px;
+            }
         }
+        
+        > div > ul {
+            align-items: center;
+            display: inline-flex;
+            height: 110px;
+            margin-left: 125px;
 
-        @include breakpoint(903px) {
-            left: 25px;
-        }
+            li:hover {
+                .drawer, .dropdown {
+                    background: map-get($colors, teal);
+                }
 
-        @include breakpoint(853px) {
-            top: -40px;
-        }
+                .dropdown {
+                    display: grid;
 
-        @include breakpoint(640px) {
-            height: 105px;
-            top: -26px;
-            width: 92px;
+                    a {
+                        font-size: .875rem;
+                        width: 100%;
+
+                        &:hover {
+                            background: map-get($colors, light_teal);
+                            color: map-get($colors, text);
+                        }
+                    }
+                }
+            }
+
+            a {
+                color: map-get($colors, text_reverse);
+                font-weight: normal;
+                padding: 16px 20px;
+                text-decoration: none;
+            }
+            
+            .dropdown {
+                display: none;
+                position: absolute;
+                width: 170px;
+            }
+
+            @include breakpoint(903px) {
+                margin-left: 175px;
+            }
+    
+            @include breakpoint(853px) {
+                height: 80px;
+            }
+    
+            @include breakpoint(640px) {
+                display: none;
+            }
         }
     }
     
     .hero {
         border-radius: 20px 20px 0 0;
-        background: url('../assets/img/header-welcome-3.jpg') left center no-repeat;
+        background: url('/assets/img/header-welcome-3.jpg') left center no-repeat;
         background-size: 854px 100%;
         height: 100%;
         overflow: hidden;
@@ -212,6 +304,7 @@ $colors: (
         }
     }
 
+    // header hexagon cluster component
     #hex-cluster {
         bottom: 99px;
         position: absolute;
@@ -259,7 +352,7 @@ $colors: (
             }
         }
 
-        @include breakpoint(639px) {
+        @include breakpoint(640px) {
             right: 95px;
 
             .med, .sml {
@@ -269,37 +362,22 @@ $colors: (
     }
 }
 
+// card links section
 #links {
     > ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 2px;
+        display: grid;
+        grid-gap: 41px;
+        grid-template-columns: repeat(auto-fill, 204px);
+        grid-auto-rows: 1fr;
 
         * {
             color: map-get($colors, text_reverse);
-        }
-
-        > li:not(:last-child) {
-            margin-right: 41px;
-
-            @include breakpoint(853px) {
-                margin: 0 20.5px 41px;
-            }
-            
-            @include breakpoint(539px) {
-                margin: 0 41px;
-
-                &:not(:last-child) {
-                    margin-bottom: 41px;
-                }
-            }
         }
         
         .card {
             background-color: map-get($colors, olive);
             border-radius: 8px;
-            min-height: 417px;
+            height: 100%;
             overflow: hidden;
             width: 204px;
 
@@ -314,7 +392,7 @@ $colors: (
                     position: absolute;
                 }
 
-                figcaption {
+                p {
                     font-size: 1.375rem;
                     font-weight: 600;
                     line-height: 1.2em;
@@ -348,12 +426,83 @@ $colors: (
     }
 }
 
-#downloads {
+// faqs page
+#faqs {
+    margin-bottom: 4px;
+    
+    .question {
+        margin-bottom: 5px;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+// testimonials page
+#testimonials {
     > ul {
+        > li:not(:last-child) {
+            margin-bottom: 89px;
+        }
+    }
+
+    .testimony {
+        align-items: flex-end;
+        column-gap: 41px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        > p {
+            font-size: 1.3125rem;
+            font-weight: normal;
+            padding-bottom: 53px;
+            width: 449px;
+
+            &:before {
+                content: '\201C';
+                position: absolute;
+                left: -8px;
+            }
+
+            @include breakpoint(853px) {
+                padding-bottom: 13px;
+                width: 100%;
+            }
+        }
+
+        .attribution {
+            width: 204px;
+
+            h3 {
+                font-family: 'St Marie', sans-serif;
+                font-size: 1.875rem;
+                line-height: 1.2em;
+                margin-bottom: 8px;
+            }
+
+            ul {
+                margin-bottom: 33px;
+            }
+        }
+
+        hr {
+            background: map-get($colors, teal);
+            bottom: 38px;
+            height: 2px;
+            position: absolute;
+            width: calc(100% + 80px);
+        }
+    }
+}
+
+// download matrix section
+#downloads {
+    div > ul {
         display: grid;
         grid-gap: 41px;
         grid-template-columns: repeat(auto-fill, 142px);
-        margin-bottom: 46px;
 
         * {
             color: map-get($colors, text_reverse);
@@ -390,16 +539,18 @@ $colors: (
 
         @include breakpoint(853px) {
             justify-content: space-around;
-            margin: 0 auto 46px;
             width: 100%;
         }
     }
 }
 
+// footer section
 #footer {
     background: map-get($colors, teal_blue);
     border-radius: 0 0 20px 20px;
     padding: 0 80px 30px;
+
+    margin-top: 60px;
 
     * {
         color: map-get($colors, text_reverse)
@@ -413,7 +564,7 @@ $colors: (
             margin-right: 31px;
         }
 
-        @include breakpoint(745px) {
+        @include breakpoint(405px) {
             flex-direction: column;
             margin: 27px 0 19px 0;
 
@@ -439,7 +590,7 @@ $colors: (
         padding: 0 52px 30px;
     }
     
-    @include breakpoint(639px) {
+    @include breakpoint(640px) {
         padding: 0 25px 30px;
     }
 }
