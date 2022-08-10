@@ -1,0 +1,26 @@
+{
+    "parent/student handbook": {
+        "link": "assets/downloads/1010-parentstudent-handbook-fall-2022-2023.pdf",
+        "title": "Parent/ Student Handbook",
+        "size": "PDF - 180K",
+        "flags": {
+            "active": true
+        }
+    },
+    "2022-23 monday calendar": {
+        "link": "assets/downloads/1010-calendar-2022-2023-m.pdf",
+        "title": "2022-23 Family Calendar - Monday",
+        "size": "PDF - 28K",
+        "flags": {
+            "active": true
+        }
+    },
+    "2022-23 wednesday calendar": {
+        "link": "assets/downloads/1010-calendar-2022-2023-w.pdf",
+        "title": "2022-23 Family Calendar - Wednesday",
+        "size": "PDF - 36K",
+        "flags": {
+            "active": true
+        }
+    }
+}
