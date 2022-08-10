@@ -1,5 +1,5 @@
 <!-- Created March 7th by Tate Schron -->
-<!-- Updated Jul 28th, 1:00am -->
+<!-- Updated August 9th, 6:00pm -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,16 +7,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to 10:10 Academy</title>
-    <link rel="icon" href="assets/img/favico.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/load-handler.js" async></script>
+    <title>10:10 Academy | Home</title>
+    <link rel="icon" href="/assets/icon/favico.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="/js/main.js" async></script>
 </head>
 <body>
     <div id="root" class="shadow">
-        <main id="main">
-            <header id="header"></header>
+        <main id="home">
+            <header id="header">
+                <div id="navbar"></div>
+                <div class="hero">
+                    <h1 class="title"></h1>
+                </div>
+                <div id="hex-cluster"></div>
+            </header>
             <section id="about">
                 <h2 class="title">About Us</h2>
                 <p>10:10 Academy is a Christ-focused Collaborative Learning Community (CLC) based in Riverside, California. We offer weekly academic and elective classes for students K-12. Our program is designed to minister to the whole person by creating a loving learning environment with Biblical standards. We offer opportunities not just for learning, but to connect and build meaningful relationships for the whole family.</p>
@@ -25,56 +30,57 @@
                 <h2 class="title">Important Links</h2>
                 <ul class="shadow">
                     <li>
-                        <figure class="card">
+                        <div class="card">
                             <div class="thumbnail">
                                 <img src="assets/img/card-links-1.jpg" alt="10:10 Academy on Jumbula" loading="lazy">
-                                <figcaption>Jumbula</figcaption>
+                                <p>Resources</p>
                             </div>
                             <div class="content">
                                 <p>Our online registration system with calendars, payment portal, and announcements updated weekly and our parent-student-teacher communication site</p>
                                 <ul>
                                     <li>
-                                        <a href="https://10-10-academy.jumbula.com/#/home" target="_blank"  title="10:10 Academy on Jumbula"><span class="right bullet">&#x203A;</span>Jumbula</a>
+                                        <a href="https://10-10-academy.jumbula.com/#/home" target="_blank"  title="Link to Jumbula for online registration, calendars, payment portal and weekly announcements"><span class="right bullet">&#x203A;</span>Jumbula</a>
                                     </li>
                                     <li>
-                                        <a href="https://new.edmodo.com/login?utm_source=main&utm_campaign=logged-out-pages&utm_medium=visitor-site&utm_content=landing-page-topnav" target="_blank"  title="10:10 Academy on Edmodo"><span class="right bullet">&#x203A;</span>Edmodo</a>
+                                        <a href="https://new.edmodo.com/login?utm_source=main&utm_campaign=logged-out-pages&utm_medium=visitor-site&utm_content=landing-page-topnav" target="_blank"  title="Link to Edmodo for parent-student-teacher communication"><span class="right bullet">&#x203A;</span>Edmodo</a>
                                     </li>
                                 </ul>
                             </div>
-                        </figure>
+                        </div>
                     </li>
                     <li>
-                        <figure class="card">
+                        <div class="card">
                             <div class="thumbnail">
                                 <img src="assets/img/card-links-2.jpg" alt="10:10 Academy on Jumbala" loading="lazy">
-                                <figcaption>10:10 Academy on Facebook</figcaption>
+                                <p>10:10 Academy on Facebook</p>
                             </div>
                             <div class="content">
+                                <p>For general information join our community page, once registered join our families page.</p>
                                 <ul>
                                     <li>
-                                        <a href="https://www.facebook.com/groups/1010academy" target="_blank" title="10:10 Academy Community Page"><span class="right bullet">&#x203A;</span>Community</a>
+                                        <a href="https://www.facebook.com/groups/1010academy" target="_blank" title="Link to Facebook for the general homeschooling community"><span class="right bullet">&#x203A;</span>Community</a>
                                     </li>
                                     <li>
-                                        <a href="https://www.facebook.com/groups/1304151342981730" target="_blank" title="10:10 Academy Family Page"><span class="right bullet">&#x203A;</span>Families</a>
+                                        <a href="https://www.facebook.com/groups/1304151342981730" target="_blank" title="Link to Facebook for registered families"><span class="right bullet">&#x203A;</span>Families</a>
                                     </li>
                                     <li>
                                         <a href="https://www.facebook.com/groups/438350166761676" target="_blank" title="10:10 Academy Staff Page"><span class="right bullet">&#x203A;</span>Staff</a>
                                     </li>
                                 </ul>
                             </div>
-                        </figure>
+                        </div>
                     </li>
                     <li>
-                        <figure class="card">
+                        <div class="card">
                             <div class="thumbnail">
                                 <img src="assets/img/card-links-3.jpg" alt="10:10 Academy on Jumbala" loading="lazy">
-                                <figcaption>Instagram</figcaption>
+                                <p>Instagram</p>
                             </div>
                             <div class="content">
                                 <p>Connect with us on Instagram for announcements, helpful tips, and more!</p>
-                                <a href="https://www.instagram.com/1010academy" target="_blank" title="10:10 Academy on Instagram"><span class="right bullet">&#x203A;</span>Learn More</a>
+                                <a href="https://www.instagram.com/1010academy" target="_blank" title="Link to Instagram for announcements, help tips and more!"><span class="right bullet">&#x203A;</span>Learn More</a>
                             </div>
-                        </figure>
+                        </div>
                     </li>
                 </ul>
             </section>
